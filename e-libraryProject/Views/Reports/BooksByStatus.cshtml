@@ -1,0 +1,62 @@
+﻿@model e_libraryProject.Models.Reports.BooksByStatusPage
+@using e_libraryProject.Models
+
+@functions {
+    string FriendlyStatus(EBookStatus status)
+    {
+        return status switch
+        {
+            EBookStatus.LIBUSEONLY => "Lib Use Only",
+            _ => status.ToString()
+        };
+    }
+}
+
+@{
+    ViewData["Title"] = "Books by Status Report";
+}
+
+<h1>Books by Status Report</h1>
+
+<div class="alert alert-info">
+    <div><strong>Total Books:</strong> @Model.TotalBooks</div>
+    <div>
+        <strong>Most Common Status:</strong> @(Model.MostCommonStatus.HasValue
+                ? FriendlyStatus(Model.MostCommonStatus.Value)
+                : "N/A")
+    </div>
+</div>
+
+@foreach (var g in Model.Groups)
+{
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span><strong>@FriendlyStatus(g.Status)</strong></span>
+            <span class="badge bg-primary">@g.Count</span>
+        </div>
+
+        <div class="card-body">
+            @if (g.Books.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var b in g.Books)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>@b.Title</span>
+                            <a class="btn btn-sm btn-outline-info"
+                               asp-controller="Books"
+                               asp-action="Details"
+                               asp-route-id="@b.Id">
+                                Details
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted mb-0">No books in this status.</p>
+            }
+        </div>
+    </div>
+}

@@ -51,22 +51,19 @@ namespace e_libraryProject.Controllers
         }
 
         // GET: Books/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var book = await _context.Books
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(b => b.BookAuthors)
+                    .ThenInclude(ba => ba.Author)
+                .FirstOrDefaultAsync(b => b.Id == id);
+
             if (book == null)
-            {
                 return NotFound();
-            }
 
             return View(book);
         }
+
 
         // GET: Books/Create
         [Authorize(Roles = "Admin")]
