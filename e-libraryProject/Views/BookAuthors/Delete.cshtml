@@ -1,0 +1,34 @@
+﻿@model e_libraryProject.Models.BookAuthor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="mb-3">Delete</h1>
+<h5 class="text-danger">Are you sure you want to delete this?</h5>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h4 class="card-title mb-3">BookAuthor</h4>
+
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Book</dt>
+            <dd class="col-sm-9">@Model.Book?.Title</dd>
+
+            <dt class="col-sm-3">Author</dt>
+            <dd class="col-sm-9">@Model.Author?.Name</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.AddedAt)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(m => m.AddedAt)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Note)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(m => m.Note)</dd>
+        </dl>
+
+        <form asp-action="Delete" method="post" class="mt-4">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+        </form>
+    </div>
+</div>

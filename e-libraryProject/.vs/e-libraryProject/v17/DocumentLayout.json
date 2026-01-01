@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|c:\\users\\omar sh\\documents\\e-libraryproject\\e-libraryproject\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|solutionrelative:controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|c:\\users\\omar sh\\documents\\e-libraryproject\\e-libraryproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|c:\\users\\omar sh\\documents\\e-libraryproject\\e-libraryproject\\data\\roleseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|solutionrelative:data\\roleseed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|c:\\users\\omar sh\\documents\\e-libraryproject\\e-libraryproject\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|c:\\users\\omar sh\\documents\\e-libraryproject\\e-libraryproject\\controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|solutionrelative:controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|c:\\users\\omar sh\\documents\\e-libraryproject\\e-libraryproject\\controllers\\bookauthorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0BC9BD-7173-496B-B152-55845D625672}|e-libraryProject.csproj|solutionrelative:controllers\\bookauthorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoleSeed.cs",
+              "DocumentMoniker": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Data\\RoleSeed.cs",
+              "RelativeDocumentMoniker": "Data\\RoleSeed.cs",
+              "ToolTip": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Data\\RoleSeed.cs",
+              "RelativeToolTip": "Data\\RoleSeed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T19:56:46.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T19:47:30.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T19:41:45.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BooksController.cs",
+              "DocumentMoniker": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Controllers\\BooksController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BooksController.cs",
+              "ToolTip": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Controllers\\BooksController.cs",
+              "RelativeToolTip": "Controllers\\BooksController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAgwBgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T19:41:44.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BookAuthorsController.cs",
+              "DocumentMoniker": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Controllers\\BookAuthorsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BookAuthorsController.cs",
+              "ToolTip": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Controllers\\BookAuthorsController.cs",
+              "RelativeToolTip": "Controllers\\BookAuthorsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T19:41:42.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthorsController.cs",
+              "DocumentMoniker": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Controllers\\AuthorsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthorsController.cs",
+              "ToolTip": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\Controllers\\AuthorsController.cs",
+              "RelativeToolTip": "Controllers\\AuthorsController.cs",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAkwJIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T19:41:42.395Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
