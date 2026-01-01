@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1NQ6zum6orM=",
+  "dgSpecHash": "waNbbUOcLEk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\e-libraryProject.csproj",
+  "projectFilePath": "C:\\Users\\Omar Sh\\Documents\\GitHub\\e-libraryProject\\e-libraryProject\\e-libraryProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Omar Sh\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Omar Sh\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

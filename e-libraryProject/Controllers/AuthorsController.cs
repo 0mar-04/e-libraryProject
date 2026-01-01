@@ -21,9 +21,33 @@ namespace e_libraryProject.Controllers
         }
 
         // GET: Authors
-        public async Task<IActionResult> Index()
+
+
+        public async Task<IActionResult> Index(string? search, string? sort)
         {
-            return View(await _context.Authors.ToListAsync());
+            IQueryable<Author> query = _context.Authors;
+
+            
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                query = query.Where(a =>
+                    a.Name.Contains(search) ||
+                    a.Email.Contains(search) ||
+                    a.PhoneNumber.Contains(search));
+            }
+
+             
+            query = sort switch
+            {
+                "desc" => query.OrderByDescending(a => a.Name),
+                _ => query.OrderBy(a => a.Name),
+            };
+
+           
+            ViewBag.Search = search ?? "";
+            ViewBag.Sort = sort ?? "";
+
+            return View(await query.ToListAsync());
         }
 
         // GET: Authors/Details/5

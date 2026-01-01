@@ -8637,11 +8637,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\e-libraryProject.csproj",
+      "projectUniqueName": "C:\\Users\\Omar Sh\\Documents\\GitHub\\e-libraryProject\\e-libraryProject\\e-libraryProject.csproj",
       "projectName": "e-libraryProject",
-      "projectPath": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\e-libraryProject.csproj",
+      "projectPath": "C:\\Users\\Omar Sh\\Documents\\GitHub\\e-libraryProject\\e-libraryProject\\e-libraryProject.csproj",
       "packagesPath": "C:\\Users\\Omar Sh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Omar Sh\\Documents\\e-libraryProject\\e-libraryProject\\obj\\",
+      "outputPath": "C:\\Users\\Omar Sh\\Documents\\GitHub\\e-libraryProject\\e-libraryProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
