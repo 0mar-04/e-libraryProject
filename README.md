@@ -110,38 +110,6 @@ Bootswatch (Flatly + Darkly)
 
 C#
 
-🗂️ Project Structure
-e-libraryProject
-│
-├── Controllers
-│   ├── BooksController.cs
-│   ├── AuthorsController.cs
-│   ├── BookAuthorsController.cs
-│   └── HomeController.cs
-│
-├── Models
-│   ├── Book.cs
-│   ├── Author.cs
-│   ├── BookAuthor.cs
-│   ├── ApplicationUser.cs
-│   └── EBookStatus.cs
-│
-├── Data
-│   ├── ApplicationDbContext.cs
-│   └── RoleSeed.cs
-│
-├── Views
-│   ├── Books
-│   ├── Authors
-│   ├── BookAuthors
-│   ├── Home
-│   └── Shared
-│       ├── _Layout.cshtml
-│       ├── _LoginPartial.cshtml
-│       └── _ActionButtons.cshtml
-│
-└── Program.cs
-
 ⚙️ Setup Instructions
 
 Clone the repository
