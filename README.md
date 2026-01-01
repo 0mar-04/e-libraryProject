@@ -3,6 +3,7 @@ e-libraryProject is an ASP.NET Core MVC web application for managing books, auth
 The system uses ASP.NET Core Identity for authentication and authorization, supports role-based access, and follows clean MVC and database design principles.
 
 🚀 Features
+
 🔐 Authentication & Authorization
 
 ASP.NET Core Identity with custom ApplicationUser
