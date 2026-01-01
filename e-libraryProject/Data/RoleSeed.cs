@@ -1,6 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using e_libraryProject.Models;
 
+
+//admin@elib.com <<<<
+//Admin@12345 <<<<
+
+
+
 namespace e_libraryProject.Data
 {
     public static class RoleSeed
@@ -21,8 +27,8 @@ namespace e_libraryProject.Data
             }
 
             // Admin user
-            var adminEmail = "admin@elib.com";
-            var adminPassword = "Admin@12345";
+            var adminEmail = "admin@elib.com";//<---------------Look Here!!!-----------------------------------------
+            var adminPassword = "Admin@12345"; //<------------------------------------------------------------------
 
             var admin = await userManager.FindByEmailAsync(adminEmail);
             if (admin == null)
