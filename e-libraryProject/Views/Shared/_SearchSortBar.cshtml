@@ -1,0 +1,22 @@
+﻿@model (string Search, string Sort)
+
+<form method="get" class="row g-2 align-items-end mb-3">
+    <div class="col-sm-6 col-md-5">
+        <label class="form-label">Search</label>
+        <input name="search" value="@Model.Search" class="form-control" placeholder="Search" />
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <label class="form-label">Sort</label>
+        <select name="sort" class="form-select">
+            <option value="">(A → Z)</option>
+            <option value="desc" selected="@(Model.Sort == "desc")">(Z → A)</option>
+           
+        </select>
+    </div>
+
+    <div class="col-md-3 d-grid d-md-block">
+        <button type="submit" class="btn btn-primary">Apply</button>
+        <a asp-action="Index" class="btn btn-secondary ms-md-2 mt-2 mt-md-0">Reset</a>
+    </div>
+</form>

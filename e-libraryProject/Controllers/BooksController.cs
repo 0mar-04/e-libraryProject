@@ -22,10 +22,32 @@ namespace e_libraryProject.Controllers
         }
 
         // GET: Books
-        
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(string? search, string? sort)
         {
-            return View(await _context.Books.ToListAsync());
+            IQueryable<Book> query = _context.Books;
+
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                query = query.Where(b => b.Title.Contains(search));
+                                    
+
+            }
+
+            
+            query = sort switch
+            {
+                "desc" => query.OrderByDescending(b => b.Title),
+                
+                _ => query.OrderBy(b => b.Title),
+            };
+
+            
+            ViewBag.Search = search ?? "";
+            ViewBag.Sort = sort ?? "";
+
+            return View(await query.ToListAsync());
         }
 
         // GET: Books/Details/5
