@@ -21,13 +21,30 @@ namespace e_libraryProject.Controllers
         }
 
         // GET: BookAuthors
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, string? sort)
         {
-            var applicationDbContext = _context.BookAuthors
+            IQueryable<BookAuthor> query = _context.BookAuthors
                 .Include(b => b.Author)
                 .Include(b => b.Book);
 
-            return View(await applicationDbContext.ToListAsync());
+            
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                query = query.Where(b =>
+                    b.Book.Title.Contains(search) ||
+                    b.Author.Name.Contains(search) ||
+                    (b.Note != null && b.Note.Contains(search)));
+            }
+
+            
+            query = sort == "desc"
+                ? query.OrderByDescending(b => b.Book.Title)
+                : query.OrderBy(b => b.Book.Title);
+
+            ViewBag.Search = search ?? "";
+            ViewBag.Sort = sort ?? "";
+
+            return View(await query.ToListAsync());
         }
 
         // GET: BookAuthors/Details/5
