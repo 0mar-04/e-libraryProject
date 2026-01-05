@@ -4,65 +4,64 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - e_libraryProject</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/darkly/bootstrap.min.css"
-          media="(prefers-color-scheme: dark)">
 
+    <!-- Theme (Darkly) -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/darkly/bootstrap.min.css" />
+
+    <!-- Site styles -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/e_libraryProject.styles.css" asp-append-version="true" />
 </head>
+
 <body>
+    <!-- Accessibility: skip link -->
+    <a class="visually-hidden-focusable" href="#mainContent">Skip to main content</a>
+
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom shadow-sm sticky-top">
             <div class="container-fluid">
 
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand fw-semibold" asp-area="" asp-controller="Home" asp-action="Index">
                     e_libraryProject
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target=".navbar-collapse"
-                        aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar"
                         aria-expanded="false"
                         aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-
+                <div class="collapse navbar-collapse" id="mainNavbar">
                     <!-- LEFT SIDE -->
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                        <!-- Home -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-controller="Home"
-                               asp-action="Index">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
                                 Home
                             </a>
                         </li>
 
                         <!-- Books -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark"
+                            <a class="nav-link dropdown-toggle"
                                href="#"
                                role="button"
-                               data-bs-toggle="dropdown">
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
                                 Books
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu dropdown-menu-dark shadow">
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-controller="Books"
-                                       asp-action="Index">
+                                    <a class="dropdown-item" asp-controller="Books" asp-action="Index">
                                         All Books
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-controller="Books"
-                                       asp-action="Create">
+                                    <a class="dropdown-item" asp-controller="Books" asp-action="Create">
                                         Add Book
                                     </a>
                                 </li>
@@ -71,92 +70,91 @@
 
                         <!-- Authors -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark"
+                            <a class="nav-link dropdown-toggle"
                                href="#"
                                role="button"
-                               data-bs-toggle="dropdown">
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
                                 Authors
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu dropdown-menu-dark shadow">
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-controller="Authors"
-                                       asp-action="Index">
+                                    <a class="dropdown-item" asp-controller="Authors" asp-action="Index">
                                         All Authors
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-controller="Authors"
-                                       asp-action="Create">
+                                    <a class="dropdown-item" asp-controller="Authors" asp-action="Create">
                                         Add Author
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
+                        <!-- Book Authors -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark"
+                            <a class="nav-link dropdown-toggle"
                                href="#"
                                role="button"
-                               data-bs-toggle="dropdown">
+                               data-bs-toggle="dropdown"
+                               aria-expanded="false">
                                 Book Authors
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu dropdown-menu-dark shadow">
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-controller="BookAuthors"
-                                       asp-action="Index">
+                                    <a class="dropdown-item" asp-controller="BookAuthors" asp-action="Index">
                                         Manage Links
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                       asp-controller="BookAuthors"
-                                       asp-action="Create">
-                                        Link Book & Author
+                                    <a class="dropdown-item" asp-controller="BookAuthors" asp-action="Create">
+                                        Link Book &amp; Author
                                     </a>
                                 </li>
                             </ul>
                         </li>
+
+                        <!-- Reports -->
                         <li class="nav-item">
-                            <a class="nav-link"
-                               asp-controller="Reports"
-                               asp-action="BooksByStatus">
+                            <a class="nav-link" asp-controller="Reports" asp-action="BooksByStatus">
                                 Reports
                             </a>
                         </li>
+
                         <!-- Privacy -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark"
-                               asp-controller="Home"
-                               asp-action="Privacy">
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">
                                 Privacy
                             </a>
                         </li>
-                        
-
                     </ul>
 
-                    
-                    <partial name="_LoginPartial" />
-
+                    <!-- RIGHT SIDE -->
+                    <div class="d-flex align-items-center gap-2">
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
+
             </div>
         </nav>
-
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <div class="container my-4">
+        <main id="mainContent" role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - e_libraryProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top py-3 text-muted">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <div>&copy; 2025 - e_libraryProject</div>
+            <div>
+                <a class="link-secondary" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

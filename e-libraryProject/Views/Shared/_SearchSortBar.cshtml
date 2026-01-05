@@ -1,22 +1,54 @@
 ﻿@model (string Search, string Sort)
 
-<form method="get" class="row g-2 align-items-end mb-3">
-    <div class="col-sm-6 col-md-5">
-        <label class="form-label">Search</label>
-        <input name="search" value="@Model.Search" class="form-control" placeholder="Search" />
-    </div>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
 
-    <div class="col-sm-6 col-md-4">
-        <label class="form-label">Sort</label>
-        <select name="sort" class="form-select">
-            <option value="">(A → Z)</option>
-            <option value="desc" selected="@(Model.Sort == "desc")">(Z → A)</option>
-           
-        </select>
-    </div>
+        <form method="get" class="row g-3 align-items-end">
 
-    <div class="col-md-3 d-grid d-md-block">
-        <button type="submit" class="btn btn-primary">Apply</button>
-        <a asp-action="Index" class="btn btn-secondary ms-md-2 mt-2 mt-md-0">Reset</a>
+            <!-- Search -->
+            <div class="col-sm-6 col-md-5">
+                <label for="searchInput" class="form-label fw-semibold">
+                    Search
+                </label>
+                <input id="searchInput"
+                       name="search"
+                       value="@Model.Search"
+                       class="form-control"
+                       placeholder="Search by title, author..."
+                       aria-label="Search books" />
+            </div>
+
+            <!-- Sort -->
+            <div class="col-sm-6 col-md-4">
+                <label for="sortSelect" class="form-label fw-semibold">
+                    Sort
+                </label>
+                <select id="sortSelect"
+                        name="sort"
+                        class="form-select"
+                        aria-label="Sort order">
+                    <option value="" selected="@(string.IsNullOrEmpty(Model.Sort))">
+                        A → Z
+                    </option>
+                    <option value="desc" selected="@(Model.Sort == "desc")">
+                        Z → A
+                    </option>
+                </select>
+            </div>
+
+            <!-- Actions -->
+            <div class="col-md-3 d-grid d-md-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    Apply
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary">
+                    Reset
+                </a>
+            </div>
+
+        </form>
+
     </div>
-</form>
+</div>

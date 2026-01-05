@@ -1,36 +1,56 @@
 ﻿@model e_libraryProject.Models.Author
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Author Details";
 }
 
-<h1>Details</h1>
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-7">
 
-<div>
-    <h4>Author</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+            <div class="card shadow-sm">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h1 class="h5 mb-0">Author Details</h1>
+                    <span class="badge bg-secondary">ID: @Model.Id</span>
+                </div>
+
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(m => m.Name)</dt>
+                        <dd class="col-sm-8 fw-semibold">@Html.DisplayFor(m => m.Name)</dd>
+
+                        <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(m => m.PhoneNumber)</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(m => m.PhoneNumber)</dd>
+
+                        <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(m => m.Email)</dt>
+                        <dd class="col-sm-8">
+                            @if (!string.IsNullOrWhiteSpace(Model.Email))
+                            {
+                                <a class="link-light" href="mailto:@Model.Email">@Model.Email</a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">—</span>
+                            }
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="card-footer d-flex flex-column flex-sm-row gap-2">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">
+                        Delete
+                    </a>
+
+                    <a asp-action="Index" class="btn btn-outline-secondary ms-sm-auto">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

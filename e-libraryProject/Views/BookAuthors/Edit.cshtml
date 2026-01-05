@@ -1,42 +1,66 @@
 ﻿@model e_libraryProject.Models.BookAuthor
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Link";
 }
 
-<h1 class="mb-3">Edit</h1>
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-7">
 
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title mb-3">BookAuthor</h4>
+            <div class="card shadow-sm">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h1 class="h5 mb-0">Edit Book–Author Link</h1>
+                    <span class="badge bg-secondary">ID: @Model.Id</span>
+                </div>
 
-        <div class="mb-3">
-            <div><strong>Book:</strong> @Model.Book?.Title</div>
-            <div><strong>Author:</strong> @Model.Author?.Name</div>
+                <div class="card-body">
+                    <div class="alert alert-secondary" role="alert">
+                        <div class="d-flex flex-column gap-1">
+                            <div><strong>Book:</strong> @Model.Book?.Title</div>
+                            <div><strong>Author:</strong> @Model.Author?.Name</div>
+                        </div>
+                    </div>
+
+                    <form asp-action="Edit" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2" role="alert"></div>
+
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="BookId" />
+                        <input type="hidden" asp-for="AuthorId" />
+
+                        <div class="mb-3">
+                            <label asp-for="AddedAt" class="form-label fw-semibold"></label>
+                            <input asp-for="AddedAt" class="form-control" />
+                            <span asp-validation-for="AddedAt" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Note" class="form-label fw-semibold"></label>
+                            <input asp-for="Note" class="form-control" placeholder="Optional note" />
+                            <span asp-validation-for="Note" class="text-danger small"></span>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                Save
+                            </button>
+
+                            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary">
+                                View Details
+                            </a>
+
+                            <a asp-action="Index" class="btn btn-outline-secondary ms-sm-auto">
+                                Back to List
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
-
-        <form asp-action="Edit" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <input type="hidden" asp-for="Id" />
-            <input type="hidden" asp-for="BookId" />
-            <input type="hidden" asp-for="AuthorId" />
-
-            <div class="mb-3">
-                <label asp-for="AddedAt" class="form-label"></label>
-                <input asp-for="AddedAt" class="form-control" />
-                <span asp-validation-for="AddedAt" class="text-danger"></span>
-            </div>
-
-            <div class="mb-3">
-                <label asp-for="Note" class="form-label"></label>
-                <input asp-for="Note" class="form-control" />
-                <span asp-validation-for="Note" class="text-danger"></span>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
-        </form>
     </div>
 </div>
 

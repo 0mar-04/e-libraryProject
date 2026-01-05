@@ -4,35 +4,93 @@
     ViewData["Title"] = "Authors";
 }
 
-<h1>Authors</h1>
-<partial name="_SearchSortBar" model="((string)ViewBag.Search, (string)ViewBag.Sort)" />
+<div class="container my-4">
 
-<p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
-</p>
+    <!-- Page header -->
+    <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-1">Authors</h1>
+            <div class="text-muted small">Manage author profiles and contact details.</div>
+        </div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Name)</th>
-            <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
-            <th>@Html.DisplayNameFor(model => model.Email)</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
-                <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <a asp-action="Create" class="btn btn-success">
+            + Add Author
+        </a>
+    </div>
+
+    <!-- Search / Sort -->
+    <partial name="_SearchSortBar" model="((string)ViewBag.Search, (string)ViewBag.Sort)" />
+
+    <!-- Table -->
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="ps-3">Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th class="text-end pe-3" style="width: 280px;">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="ps-3 fw-semibold">
+                                        @item.Name
+                                    </td>
+
+                                    <td class="text-muted">
+                                        @item.PhoneNumber
+                                    </td>
+
+                                    <td>
+                                        @if (!string.IsNullOrWhiteSpace(item.Email))
+                                        {
+                                            <a class="link-light" href="mailto:@item.Email">@item.Email</a>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">—</span>
+                                        }
+                                    </td>
+
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Author actions">
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info">
+                                                Details
+                                            </a>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
+                                                Edit
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4" class="p-4">
+                                    <div class="alert alert-secondary mb-0" role="alert">
+                                        No authors found. Try adjusting your search, or add a new author.
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

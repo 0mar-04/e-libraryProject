@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("e-libraryProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bd39f01c7345772068fa0978a3021278c364f0b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0861542f1726f996ff76527511a4516a73b8fea")]
 [assembly: System.Reflection.AssemblyProductAttribute("e-libraryProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("e-libraryProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

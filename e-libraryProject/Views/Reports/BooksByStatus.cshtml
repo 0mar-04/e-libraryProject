@@ -10,53 +10,133 @@
             _ => status.ToString()
         };
     }
+
+    // Simple badge color mapping (safe defaults)
+    string StatusBadgeClass(EBookStatus status)
+    {
+        return status switch
+        {
+            EBookStatus.AVAILABLE => "bg-success",
+            EBookStatus.OnHold => "bg-warning text-dark",
+            EBookStatus.LIBUSEONLY => "bg-info text-dark",
+            EBookStatus.MISSING => "bg-danger",
+            _ => "bg-secondary" // Unknown
+        };
+    }
+
 }
 
 @{
-    ViewData["Title"] = "Books by Status Report";
+    ViewData["Title"] = "Books by Status";
 }
 
-<h1>Books by Status Report</h1>
+<div class="container my-4">
 
-<div class="alert alert-info">
-    <div><strong>Total Books:</strong> @Model.TotalBooks</div>
-    <div>
-        <strong>Most Common Status:</strong> @(Model.MostCommonStatus.HasValue
-                ? FriendlyStatus(Model.MostCommonStatus.Value)
-                : "N/A")
-    </div>
-</div>
-
-@foreach (var g in Model.Groups)
-{
-    <div class="card mb-3">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <span><strong>@FriendlyStatus(g.Status)</strong></span>
-            <span class="badge bg-primary">@g.Count</span>
+    <!-- Header -->
+    <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-1">Books by Status</h1>
+            <div class="text-muted small">Summary report grouped by book status.</div>
         </div>
 
-        <div class="card-body">
-            @if (g.Books.Any())
-            {
-                <ul class="list-group">
-                    @foreach (var b in g.Books)
+        <a asp-controller="Books" asp-action="Index" class="btn btn-outline-secondary">
+            View All Books
+        </a>
+    </div>
+
+    <!-- Summary cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-12 col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <div class="text-muted small">Total Books</div>
+                    <div class="display-6 fw-semibold">@Model.TotalBooks</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <div class="text-muted small">Most Common Status</div>
+                    <div class="h4 mb-0">
+                        @if (Model.MostCommonStatus.HasValue)
+                        {
+                            var s = Model.MostCommonStatus.Value;
+                            <span class="badge @StatusBadgeClass(s)">
+                                @FriendlyStatus(s)
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">N/A</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <div class="text-muted small">Statuses</div>
+                    <div class="display-6 fw-semibold">@Model.Groups.Count()</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Groups -->
+    @if (Model.Groups != null && Model.Groups.Any())
+    {
+        foreach (var g in Model.Groups)
+        {
+            <div class="card shadow-sm mb-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge @StatusBadgeClass(g.Status)">
+                            @FriendlyStatus(g.Status)
+                        </span>
+                        <span class="text-muted small">Books in this status</span>
+                    </div>
+
+                    <span class="badge bg-primary">@g.Count</span>
+                </div>
+
+                <div class="card-body p-0">
+                    @if (g.Books != null && g.Books.Any())
                     {
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <span>@b.Title</span>
-                            <a class="btn btn-sm btn-outline-info"
-                               asp-controller="Books"
-                               asp-action="Details"
-                               asp-route-id="@b.Id">
-                                Details
-                            </a>
-                        </li>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var b in g.Books)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="fw-semibold">@b.Title</div>
+
+                                    <a class="btn btn-sm btn-outline-info"
+                                       asp-controller="Books"
+                                       asp-action="Details"
+                                       asp-route-id="@b.Id">
+                                        Details
+                                    </a>
+                                </li>
+                            }
+                        </ul>
                     }
-                </ul>
-            }
-            else
-            {
-                <p class="text-muted mb-0">No books in this status.</p>
-            }
+                    else
+                    {
+                        <div class="p-3">
+                            <div class="text-muted">No books in this status.</div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-secondary" role="alert">
+            No data available for this report yet.
         </div>
-    </div>
-}
+    }
+
+</div>
